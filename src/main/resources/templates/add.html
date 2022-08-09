@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<link rel=”stylesheet” href=”https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css”rel=”nofollow” integrity=”sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm” crossorigin=”anonymous”>
+		<link rel="stylesheet" th:href="@{/css/add.css}"/>
+	</head>
+
+	<body>
+		
+		<div id="form_div">
+			<form th:action="@{'/subscribers/add'}" th:object="${subscriber}" method="POST">
+				<h1>SIP Account</h1>
+				
+				<label for="username">Username</label>
+				<input id="username" type="text" th:field="*{username}">
+				<br>
+				
+				<label for="password">Passwort</label>
+				<input id="password" type="password" th:field="*{password}">
+				<br>
+				
+				<label for="userAgent">User-Agent</label>
+				<input id="userAgent"type="text" th:field="*{userAgent}">
+				<br>
+				
+				<h2>Emergency Infos</h2>
+				<br>
+				
+				<label for="street">Stra&szlige</label>
+				<input id="street" type="text" th:field="*{emergencyInfo.street}"><br>
+				
+				<label for="number">Hausnummer</label>
+				<input id="number" type="text" th:field="*{emergencyInfo.number}"><br>
+				
+				<label for="postalCode">Postleitzahl</label>
+				<input id="postalCode" type="text" th:field="*{emergencyInfo.postalCode}"><br>
+				
+				<label for="leitstelle">Zust&aumlndige Leitstelle</label>
+				<input id="leitstelle" type="text" th:field="*{emergencyInfo.leitstelle}"><br>
+				
+				<h2>Call Properties</h2>
+				
+				<input type="text" th:field="*{callProps.cnsEnabled}"/><br>
+				
+				<input type="text" th:field="*{callProps.natEnabled}"/><br>
+			
+				<input type="submit"/>
+				<p th:each="err : ${#fields.allErrors()}" th:text="${err}"></p>
+			</form>
+		</div>
+		
+	</body>
+
+</html>

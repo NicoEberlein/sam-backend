@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<link rel="stylesheet" th:href="@{/css/edit.css}"/>
+	</head>
+
+	<body>
+		
+		<form action="#" th:action="@{'/subscribers/edit/' + *{username}}" th:object="${subscriber}" method="POST">
+			<h1>SIP Account</h1>
+			<input type="text" th:field="*{username}" readonly class="readonly"><br>
+			<input type="hidden" th:field="*{password}">
+			<input type="text" th:field="*{userAgent}"><br>
+			<h2>Emergency Infos</h2>
+			<br><hr>
+			<input type="text" th:field="*{street}"><br>
+			<input type="text" th:field="*{number}"><br>
+			<input type="text" th:field="*{postalCode}"><br>
+			<input type="text" th:field="*{leitstelle}"><br>
+			<h2>Call Properties</h2>
+			<input type="text" th:field="*{cnsEnabled}"/><br>
+			<input type="text" th:field="*{natEnabled}"/><br>
+		
+			<input type="submit"/>
+			<p th:each="err : ${#fields.allErrors()}" th:text="${err}"></p>
+		</form>
+		
+	</body>
+
+</html>

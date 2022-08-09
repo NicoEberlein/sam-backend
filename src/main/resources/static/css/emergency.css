@@ -1,0 +1,28 @@
+body{
+	font-family: roboto;
+	font-size: 20px;
+}
+
+.centered{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#subscriber-table{
+	text-align: left;
+	margin-top: 50px;
+	width: 100%;
+}
+
+#button-table{
+		width: 70%;
+		margin-top: 50px;
+}
+
+td{
+	border: 1px solid;
+}
+
+#zurueck-button{
+	margin-top: 20px;
+}

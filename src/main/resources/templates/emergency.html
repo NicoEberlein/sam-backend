@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<link rel="stylesheet" th:href="@{/css/emergency.css}"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+	</head>
+
+	<body>
+	
+		<div id="button-table" class="centered">
+		
+			<table id="subscriber-table" class="centered">
+			
+				<tr>
+					<th>Stra&szlige</th>
+					<th>Hausnummer</th>
+					<th>Postleitzahl</th>
+					<th>Leitstelle</th>
+				</tr>
+				
+				<tr>
+				
+					<td th:text="${subscriber.emergencyInfo.street}"></td>
+					<td th:text="${subscriber.emergencyInfo.number}"></td>
+					<td th:text="${subscriber.emergencyInfo.postalCode}"></td>
+					<td th:text="${subscriber.emergencyInfo.leitstelle}"></td>
+				
+				</tr>
+				
+			</table>
+			
+			<a th:href="@{/subscribers}" id="zurueck-button" class="btn btn-primary">Zur&uumlck</a>
+		
+		</div>
+	</body>
+
+</html>

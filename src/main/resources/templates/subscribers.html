@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<link rel="stylesheet" th:href="@{/css/subscribers.css}"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+	</head>
+
+	<body>
+	
+		<div id="button-table" class="centered">
+	
+			<a th:href="@{/subscribers/add}" class="btn btn-primary">Add Subscriber</a>
+		
+			<table id="subscriber-table" class="centered">
+			
+				<tr>
+					<th>Username</th>
+					<th>Password</th>
+					<th>User Agent</th>
+					<th>ClipNoScreening</th>
+					<th>NAT</th>
+				</tr>
+				
+				<tr th:each="subscriber : ${subscribers}">
+				
+					<td th:text="${subscriber.username}"></td>
+					<td th:text="${subscriber.password}"></td>
+					<td th:text="${subscriber.userAgent}"></td>
+					<td th:text="${subscriber.callProps.cnsEnabled}"></td>
+					<td th:text="${subscriber.callProps.natEnabled}"></td>
+					<td><a th:href="@{'/subscribers/emergency/' + ${subscriber.username}}">Emergency Infos</a></td>
+					
+					<td><a th:href="@{'/subscribers/edit/' + ${subscriber.username}}">Eintrag bearbeiten</a></td>
+				
+				</tr>
+				
+			</table>
+			
+			<p th:if="${#request.getParameter('successfully-changed') != null}" style="color: green;">Der Datensatz wurde erfolgreich ge&aumlndert</p>
+			<p th:if="${#request.getParameter('successfully-created') != null}" style="color: green;">Der Datensatz wurde erfolgreich erstellt</p>
+		
+		</div>
+	</body>
+
+</html>
